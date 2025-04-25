@@ -226,9 +226,12 @@ a:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
-    text-align: left;
+    text-align: center;
     position: relative;
     padding-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .option-btn::before {
@@ -600,6 +603,7 @@ tr:hover {
         font-size: 1.1rem;
         line-height: 1.4;
         margin-bottom: 15px;
+        color: white;
     }
 
     #options-container {
@@ -728,6 +732,7 @@ tr:hover {
 
     #question-text {
         font-size: 1rem;
+        color: white;
     }
 
     .option-btn {
