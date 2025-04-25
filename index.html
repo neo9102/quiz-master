@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Registration Form -->
+        <div id="registration-form" class="form-container">
+            <h2>Create Account</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required minlength="3">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required minlength="6">
+                    <small>Password must be at least 6 characters long</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="form-container hidden">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-group">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember-me"> Remember me
+                    </label>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="register-link">Register</a></p>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quiz-container" class="hidden">
+            <div class="quiz-header">
+                <h2>Quiz Master</h2>
+                <div class="user-info">
+                    <span id="welcome-message"></span>
+                    <button id="profile-btn">Profile</button>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+            <div class="quiz-content">
+                <div id="quiz-selection">
+                    <h3>Select a Quiz</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" data-quiz="general">General Knowledge</button>
+                        <button class="quiz-btn" data-quiz="science">Science</button>
+                        <button class="quiz-btn" data-quiz="history">History</button>
+                        <button class="quiz-btn" data-quiz="geography">Geography</button>
+                        <button class="quiz-btn" data-quiz="movies">Movies</button>
+                        <button class="quiz-btn" data-quiz="sports">Sports</button>
+                        <button class="quiz-btn" data-quiz="music">Music</button>
+                        <button class="quiz-btn" data-quiz="technology">Technology</button>
+                    </div>
+                </div>
+                <div id="quiz-questions" class="hidden">
+                    <div class="quiz-progress">
+                        <span id="question-number">Question 1</span>
+                        <span id="score">Score: 0</span>
+                        <span id="timer">Time: 30s</span>
+                    </div>
+                    <div id="question-container">
+                        <h3 id="question-text"></h3>
+                        <div id="options-container"></div>
+                    </div>
+                    <button id="next-btn" class="hidden">Next Question</button>
+                </div>
+                <div id="quiz-results" class="hidden">
+                    <h3>Quiz Results</h3>
+                    <p id="final-score"></p>
+                    <p id="performance-message"></p>
+                    <div class="result-actions">
+                        <button id="retry-btn">Try Another Quiz</button>
+                        <button id="share-btn">Share Score</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div id="leaderboard" class="hidden">
+            <h2>Leaderboard</h2>
+            <div class="leaderboard-filters">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="general">General Knowledge</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                    <option value="geography">Geography</option>
+                    <option value="movies">Movies</option>
+                    <option value="sports">Sports</option>
+                    <option value="music">Music</option>
+                    <option value="technology">Technology</option>
+                </select>
+                <select id="time-filter">
+                    <option value="all">All Time</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+            <div class="leaderboard-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Category</th>
+                            <th>Score</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- User Profile -->
+        <div id="profile" class="hidden">
+            <h2>User Profile</h2>
+            <div class="profile-content">
+                <div class="profile-info">
+                    <p><strong>Username:</strong> <span id="profile-username"></span></p>
+                    <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                    <p><strong>Member since:</strong> <span id="join-date"></span></p>
+                </div>
+                <div class="profile-stats">
+                    <h3>Quiz Statistics</h3>
+                    <div id="quiz-stats"></div>
+                </div>
+                <div class="profile-actions">
+                    <button id="edit-profile-btn">Edit Profile</button>
+                    <button id="change-password-btn">Change Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
